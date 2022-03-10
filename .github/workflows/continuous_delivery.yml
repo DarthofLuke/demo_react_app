@@ -30,7 +30,7 @@ jobs:
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: ${{ step.bump_tag.outputs.new_tag }}
+        automatic_release_tag: ${{ steps.bump_tag.outputs.new_tag }}
         prerelease: false
         files: |
           output.tar.gz
