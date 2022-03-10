@@ -14,3 +14,7 @@ jobs:
     with:
       release_tag: ${{ github.event.inputs.release }}
       bucket: prod-demo-react-app.trial.studio
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.DEMO_REACT_APP_AWS_ACCESS_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.DEMO_REACT_APP_AWS_SECRET }}
+      AWS_DEFAULT_REGION: "us-east-2"
