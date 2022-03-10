@@ -10,9 +10,7 @@ on:
 
 jobs:
   deploy_to_prod:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ./.github/workflows/deploy_to_env.yml
-        with:
-          release: ${{ github.event.inputs.release }}
-          bucket: s3://prod-demo-react-app.trial.studio
+    uses: ./.github/workflows/deploy_to_env.yml
+    with:
+      release_tag: ${{ github.event.inputs.release }}
+      bucket: s3://prod-demo-react-app.trial.studio
