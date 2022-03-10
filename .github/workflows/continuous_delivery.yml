@@ -23,12 +23,14 @@ jobs:
     - run: npm test
     - run: tar -czf output.tar.gz build
     - name: Bump version and push tag
-      uses: moble/github-tag-action@main
+      id: bump_tag
+      uses: anothrNick/github-tag-action@1.36.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: ${{ step.bump_tag.outputs.new_tag }}
         prerelease: false
         files: |
           output.tar.gz
