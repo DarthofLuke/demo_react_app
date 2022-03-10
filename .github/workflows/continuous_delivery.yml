@@ -33,7 +33,7 @@ jobs:
         prerelease: false
         files: |
           output.tar.gz
-    - uses:  trialstudio/demo_react_app/.github/workflows/deploy_to_env.yml
+    - uses: trialstudio/demo_react_app/.github/workflows/deploy_to_env.yml@main
       with:
         release: ${{ steps.bump_tag.outputs.new_tag }}
         bucket: s3://demo-react-app.trial.studio
