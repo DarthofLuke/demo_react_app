@@ -4,6 +4,8 @@ name: CI
 
 # Controls when the workflow will run
 on:
+  push:
+    branches: zz
   workflow_dispatch:
     inputs:
       release:
@@ -22,7 +24,8 @@ jobs:
     steps:
       - uses: dsaltares/fetch-gh-release-asset@master
         with:
-          version: "tags/${{ github.event.inputs.release }}"
+#           version: "tags/${{ github.event.inputs.release }}"
+          version: "tags/0.4.0"
           file: "output.tar.gz"
       - run: tar -xzf output.tar.gz
       - name: S3 Sync
