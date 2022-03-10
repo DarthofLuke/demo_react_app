@@ -24,3 +24,4 @@ jobs:
         with:
           version: "tags/${{ github.event.inputs.release }}"
           file: "output.tar.gz"
+      - run: pwd && ls -l
