@@ -42,7 +42,7 @@ jobs:
         with:
           version: 2.4.24
           verbose: false
-      - run: aws s3 ls
+      - run: aws s3 sync build/ s3://demo-react-app.trial.studio --delete --acl public-read
         shell: bash
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEMO_REACT_APP_AWS_ACCESS_ID }}
