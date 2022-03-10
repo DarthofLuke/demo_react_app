@@ -1,0 +1,33 @@
+name: Deploy to env
+
+on:
+  workflow_call:
+    inputs:
+      release:
+        type: string
+        required: true
+        description: version of release to deploy
+      bucket:
+        type: string
+        required: true
+        description: s3 bucket to deploy app
+
+jobs:
+  deploy_to_prod:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          version: "tags/${{ inputs.release }}"
+          file: "output.tar.gz"
+      - run: tar -xzf output.tar.gz
+      - id: install-aws-cli
+        uses: unfor19/install-aws-cli-action@v1
+        with:
+          version: 2.4.24
+          verbose: false
+      - run: aws s3 sync build/ s3://${{ inputs.bucket }} --delete --acl public-read
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.DEMO_REACT_APP_AWS_ACCESS_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.DEMO_REACT_APP_AWS_SECRET }}
+          AWS_DEFAULT_REGION: "us-east-2"
