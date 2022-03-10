@@ -43,7 +43,7 @@ jobs:
           version: 2.4.24
           verbose: false
           arch: amd64
-      - run: aws-cli s3 ls
+      - run: aws s3 ls
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEMO_REACT_APP_AWS_ACCESS_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEMO_REACT_APP_AWS_SECRET }}
