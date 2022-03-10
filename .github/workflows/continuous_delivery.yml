@@ -37,4 +37,4 @@ jobs:
     needs: cicd
     with:
       release_tag: ${{ needs.cicd.outputs.release_tag }}
-      bucket: s3://demo-react-app.trial.studio
+      bucket: demo-react-app.trial.studio

@@ -13,4 +13,4 @@ jobs:
     uses: ./.github/workflows/deploy_to_env.yml
     with:
       release_tag: ${{ github.event.inputs.release }}
-      bucket: s3://demo-react-app.trial.studio
+      bucket: demo-react-app.trial.studio
