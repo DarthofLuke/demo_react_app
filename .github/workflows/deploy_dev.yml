@@ -22,5 +22,5 @@ jobs:
     steps:
       - uses: dsaltares/fetch-gh-release-asset@master
         with:
-          version: "tags/${{ inputs.release }}"
+          version: "${{ github.event.inputs.release }}"
           file: "output.tar.gz"
