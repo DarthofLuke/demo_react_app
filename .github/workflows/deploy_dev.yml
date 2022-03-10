@@ -42,7 +42,7 @@ jobs:
         with:
           version: 2.4.24
           verbose: false
-      - run: env
+      - run: aws s3 ls
         shell: bash
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEMO_REACT_APP_AWS_ACCESS_ID }}
