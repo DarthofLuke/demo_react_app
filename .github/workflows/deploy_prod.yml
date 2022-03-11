@@ -1,4 +1,4 @@
-name: Deploy to prod
+name: Deploy to Prod
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy_to_prod:
-    uses: ./.github/workflows/deploy_to_env.yml
+    uses: trialstudio/reusable_github_workflows/.github/workflows/nodejs_deploy_to_s3.yml@main
     with:
       release_tag: ${{ github.event.inputs.release }}
       bucket: prod-demo-react-app.trial.studio
