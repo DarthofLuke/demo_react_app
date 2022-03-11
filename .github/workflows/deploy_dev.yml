@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy_to_dev:
-    uses: ibacangan/reusable_github_workflows/nodejs/deploy_to_s3.yml
+    uses: ibacangan/reusable_github_workflows/nodejs/deploy_to_s3.yml@main
     with:
       release_tag: ${{ github.event.inputs.release }}
       bucket: demo-react-app.trial.studio
